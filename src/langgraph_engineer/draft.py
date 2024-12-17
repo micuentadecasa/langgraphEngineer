@@ -37,6 +37,6 @@ def draft_answer(state: AgentState, config):
         {"role": "system", "content": prompt.format(file=file_contents)},
                    {"role": "user", "content": state.get('requirements')}
     ] + state['messages']
-    model = _get_model(config, "openai", "draft_model")
+    model = _get_model(config, "gemini", "draft_model")
     response = model.invoke(messages)
     return {"messages": [response]}
